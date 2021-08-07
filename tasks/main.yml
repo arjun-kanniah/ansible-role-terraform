@@ -1,0 +1,13 @@
+---
+- name: Ensure unzip is installed.
+  package: 
+    name: unzip 
+    state: present
+
+- name: Download and unarchive Terraform.
+  unarchive:
+    src: "{{ terraform_repo_url }}"
+    dest: "{{ terraform_bin_path }}"
+    remote_src: true
+    creates: "{{ terraform_bin_path }}/terraform"
+    mode: 0755
