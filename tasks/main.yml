@@ -5,9 +5,9 @@
     state: present
 
 - name: Download and unarchive Terraform.
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ terraform_repo_url }}"
     dest: "{{ terraform_bin_path }}"
-    remote_src: true
+    remote_src: yes
     creates: "{{ terraform_bin_path }}/terraform"
     mode: 0755
